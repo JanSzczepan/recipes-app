@@ -1,0 +1,17 @@
+.container {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 40px 30px;
+}
+
+.link {
+   font-size: 3rem;
+   text-decoration: none;
+   color: black;
+   line-height: 0.8rem;
+}
+
+.small {
+   font-size: 1.4rem;
+   font-family: 'Water Brush', cursive;
+}
