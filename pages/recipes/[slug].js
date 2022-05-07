@@ -6,7 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 
-import Skeleton from '../../components/skeleton'
+import Skeleton from '../../components/Skeleton'
 import styles from '../../styles/RecipeDetails.module.css'
 
 const client = createClient({
