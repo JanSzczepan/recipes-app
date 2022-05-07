@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
 import styles from '../styles/RecipeCard.module.css'
 
 const RecipeCard = ({ recipe }) => {
@@ -21,7 +23,7 @@ const RecipeCard = ({ recipe }) => {
             {cookingTime} mins
          </p>
          <h2 className={styles.title}>{title}</h2>
-         <p className={styles.description}>{description.content[0].content[0].value}</p>
+         <div className={styles.description}>{documentToReactComponents(description)}</div>
          <Link href={'/recipes/' + slug}>
             <a className={styles.link}>
                Gotuj

@@ -1,12 +1,87 @@
 import Head from 'next/head'
 
-const RecipeDetails = () => {
+import { createClient } from 'contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock, faCircleCheck } from '@fortawesome/free-regular-svg-icons'
+
+import styles from '../../styles/RecipeDetails.module.css'
+
+const client = createClient({
+   space: process.env.CONTENTFUL_SPACE_ID,
+   accessToken: process.env.CONTENTFUL_ACCESS_KEY
+})
+
+export const getStaticPaths = async () => {  
+   const res = await client.getEntries({ content_type: 'recipe' })
+
+   const paths = res.items.map(item => (
+      {params: {slug: item.fields.slug}}
+   ))
+
+   return {
+      paths,
+      fallback: false
+   }
+}
+
+export const getStaticProps = async ({ params }) => {
+   const {items} = await client.getEntries({ 
+      content_type: 'recipe',
+      'fields.slug': params.slug
+   })
+
+   return {
+      props: {recipe: items[0]}
+   }
+}
+
+const RecipeDetails = ({recipe}) => {
+   console.log(recipe);
+
+   const { title, featuredImage, cookingTime, ingredients, method } = recipe.fields
+
    return (  
       <>
          <Head>
-            <title>Recipe | </title>
+            <title>Recipe | {title}</title>
          </Head>
-         <div>Recipe details</div>
+         
+         <article>
+            <div className={`container ${styles.articleContainer}`}>
+               <header className={styles.header}>
+                  <div 
+                     className={styles.img} 
+                     style={{backgroundImage: `url(${'https:' + featuredImage.fields.file.url})`}}   
+                  >
+                     <div className={styles.banner}>
+                        <p>{title}</p>
+                     </div>
+                  </div>
+                  <div className={styles.textContainer}>
+                     <p className={styles.cooking}>
+                        <FontAwesomeIcon className={styles.icon} icon={faClock}/>
+                        { cookingTime } mins
+                     </p>
+                     <h1 className={styles.title}>{title}</h1>
+                     <p className={styles.ingredients}>Ingredients you will need:</p>
+                     <ul className={styles.list}>
+                        {ingredients.map((ing, idx) => (
+                           <li key={idx} className={styles.listItem}>
+                              <FontAwesomeIcon icon={faCircleCheck} className={styles.listIcon}/>
+                              {ing}
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+               </header>
+               <div className={styles.method}>
+                  <h1 className={styles.methodTitle}>Method:</h1>
+                  <div className={styles.richTextContainer}>{documentToReactComponents(method)}</div> 
+               </div>
+            </div>
+         </article>
       </>
    );
 }

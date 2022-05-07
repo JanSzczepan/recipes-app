@@ -1,0 +1,108 @@
+.articleContainer {
+   padding: 30px;
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   gap: 30px 50px;
+}
+
+.img {
+   position: relative;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   flex-basis: 100%;
+   min-height: 300px;
+}
+
+.banner {
+   position: absolute;
+   top: -10px;
+   left: -10px;
+   transform: rotate(-3deg);
+   padding: 10px 15px;
+   font-size: 1.8rem;
+   font-weight: 600;
+   background-color: #FEE76E;
+}
+
+.textContainer {
+   padding: 30px 0;
+   flex-basis: 100%;
+}
+
+.icon {
+   margin-right: 5px;
+}
+
+.title {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 3rem;
+   margin-bottom: 15px;
+}
+
+.ingredients {
+   font-size: 1.6rem;
+   margin-bottom: 15px;
+}
+
+.list {
+   padding-left: 10px;
+   list-style: none;
+}
+
+.listItem {
+   margin-bottom: 4px;
+}
+
+.listIcon {
+   margin-right: 10px;
+}
+
+.method {
+   margin-top: 50px;
+}
+
+.methodTitle {
+   margin-bottom: 25px;
+}
+
+.richTextContainer {
+   max-width: 700px;
+}
+
+.richTextContainer > h4, .richTextContainer > h5, .richTextContainer > h6 {
+   position: relative;
+   margin-bottom: 10px;
+}
+
+.richTextContainer > p {
+   margin-bottom: 20px;
+}
+
+.richTextContainer > h4::before, .richTextContainer > h5::before, .richTextContainer > h6::before {
+   content: '';
+   position: absolute;
+   bottom: -5px;
+   left: 0;
+   width: 50px;
+   height: 3px;
+   background-color: #FEE76E;
+}
+
+@media(min-width: 600px) {
+   .header {
+      flex-direction: row;
+   }
+
+   .img {
+      flex-basis: calc(50% - 25px);
+   }
+
+   .textContainer {
+      flex-basis: calc(50% - 25px);
+   }
+}

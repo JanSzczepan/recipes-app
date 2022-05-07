@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { createClient } from 'contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
@@ -42,7 +43,7 @@ export default function Home({ recipes }) {
         <div className='container'>
           <div className={styles.containerHeader}>
             <h1 className={styles.title}>{ title }</h1>
-            <p className={styles.description}>{ description.content[0].content[0].value }</p>
+            <div className={styles.description}>{ documentToReactComponents(description) }</div>
             <div className={styles.linkContainer}>
               <Link href={'/recipes/' + slug}><a className={styles.link}>Czytaj więcej</a></Link>
               <p className={styles.cooking}>
@@ -54,7 +55,7 @@ export default function Home({ recipes }) {
         </div>
       </header>
       <section className={styles.section}>
-        <div className={`container ${styles.recipes}`}>
+        <div className={styles.recipes}>
           {recipes.map((recipe, idx) => {
             if(idx === 0) return
             return <RecipeCard key={recipe.sys.id} recipe={recipe}/>
