@@ -34,6 +34,15 @@ export const getStaticProps = async ({ params }) => {
       'fields.slug': params.slug
    })
 
+   //redirect user to homepage if there aren't any data under this slug
+   if(!items.length) 
+      return {
+         redirect: {
+            destination: '/',
+            permanent: false
+         }
+      }
+
    return {
       props: {recipe: items[0]},
       revalidate: 1
