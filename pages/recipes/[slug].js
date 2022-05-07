@@ -1,6 +1,13 @@
+import Head from 'next/head'
+
 const RecipeDetails = () => {
    return (  
-      <div>Recipe details</div>
+      <>
+         <Head>
+            <title>Recipe | </title>
+         </Head>
+         <div>Recipe details</div>
+      </>
    );
 }
  

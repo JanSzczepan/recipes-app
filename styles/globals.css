@@ -22,3 +22,8 @@ body {
   font-size: 1.6rem;
   font-family: 'Raleway', sans-serif;
 }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
