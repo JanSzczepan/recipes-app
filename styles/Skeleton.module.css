@@ -1,0 +1,58 @@
+.skeletonContainer {
+   padding: 30px;
+}
+
+.headerContainer {
+   display: flex;
+   flex-direction: column;
+}
+
+.img {
+   height: 150px;
+   margin-bottom: 20px;
+}
+
+.header {
+   height: 50px;
+   margin-bottom: 15px;
+}
+
+.ing {
+   height: 20px;
+   width: 30%;
+   margin-bottom: 10px;
+}
+
+.method {
+   height: 100px;
+   width: 70%;
+}
+
+.img, .header, .ing, .method {
+   border-radius: 5px;
+   background-color: #fee66e9d;
+}
+
+@media(min-width: 600px) {
+   .headerContainer {
+      flex-direction: row;
+      gap: 0 50px;
+   }
+
+   .img {
+      width: calc(50% - 25px);
+   }
+
+   .box {
+      width: calc(50% - 25px);
+   }
+
+   .ing {
+      width: 60%;
+   }
+
+   .method  {
+      width: 100%;
+      height: 200px;
+   }
+}

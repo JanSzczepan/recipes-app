@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 
+import Skeleton from '../../components/skeleton'
 import styles from '../../styles/RecipeDetails.module.css'
 
 const client = createClient({
@@ -20,9 +21,10 @@ export const getStaticPaths = async () => {
       {params: {slug: item.fields.slug}}
    ))
 
+   //"fallback: true" - not 404 for new slug
    return {
       paths,
-      fallback: false
+      fallback: true
    }
 }
 
@@ -40,6 +42,8 @@ export const getStaticProps = async ({ params }) => {
 
 const RecipeDetails = ({recipe}) => {
    console.log(recipe);
+
+   if(!recipe) return <Skeleton />
 
    const { title, featuredImage, cookingTime, ingredients, method } = recipe.fields
 
