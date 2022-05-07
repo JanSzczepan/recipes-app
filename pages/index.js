@@ -21,8 +21,10 @@ export async function getStaticProps() {
   //get items from our contentful space
   const res = await client.getEntries({ content_type: 'recipe' })
 
+  //"revalidate" enable Next to regenerate static pages after we add new content to our app in Contentful
   return {
-    props: { recipes: res.items }
+    props: { recipes: res.items },
+    revalidate: 1
   }
 }
 
