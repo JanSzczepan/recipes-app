@@ -8,14 +8,14 @@
 .containerHeader {
    max-width: 400px;
    margin: 0 30px;
-   padding: 35px;
+   padding: 35px 25px;
    background-color: #fff;
 }
 
 .title {
    font-family: 'Lora', serif;
    font-weight: 600;
-   font-size: 3.5rem;
+   font-size: 3rem;
    margin-bottom: 15px;
 }
 
@@ -28,12 +28,13 @@
 
 .linkContainer {
    display: flex;
-   align-items: center;
+   flex-direction: column-reverse;
    justify-content: space-between;
    padding-top: 5px;
 }
 
 .link {
+   width: fit-content;
    padding: 8px 12px;
    background-color: #FEE76E;
    border: none;
@@ -44,6 +45,7 @@
 .cooking {
    display: flex;
    align-items: center;
+   margin-bottom: 10px;
 }
 
 .icon {
@@ -62,6 +64,25 @@
    justify-content: center;
    margin: 0 auto;
    max-width: 1000px;
+}
+
+@media(min-width: 350px) {
+   .containerHeader {
+      padding: 35px;
+   } 
+
+   .title {
+      font-size: 3.5rem;
+   }
+
+   .linkContainer {
+      flex-direction: row;
+      align-items: center;
+   }
+
+   .cooking {
+      margin-bottom: 0;
+   }
 }
 
 @media(min-width: 600px) {
