@@ -1,0 +1,31 @@
+.notFoundContainer {
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+}
+
+.error {
+   width: fit-content;
+   padding: 5px 30px 8px;
+   background-color: #FEE76E;
+   font-size: 3rem;
+   transform: rotate(-3deg);
+}
+
+.textBox {
+   padding-top: 15px;
+   padding-left: 10px;
+}
+
+.text {
+   margin-bottom: 5px;
+}
+
+.link {
+   color: black;
+   font-weight: 600;
+   transition: color .1s linear;
+}
+.link:hover {
+   color: #ffe044;
+}
