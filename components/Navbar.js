@@ -6,7 +6,7 @@ import styles from '../styles/Nav.module.css';
 
 const Navbar = () => {
 
-   const { user, login } = useContext(AuthContext);
+   const { user, login, logout, authReady } = useContext(AuthContext);
    console.log(user);
 
    return (  
@@ -23,15 +23,24 @@ const Navbar = () => {
             <ul className={styles.list}>
                <li className={styles.listItem}><Link href='/'><a className={styles.listLink}>Home</a></Link></li>
                <li className={styles.listItem}><Link href='/books'><a className={styles.listLink}>Books</a></Link></li>
-               <li className={styles.listItem}>
+               { authReady && <li className={styles.listItem}>
+                  { !Boolean(user) ? 
                   <button 
                      className={styles.listBtn}
                      type='button'
                      onClick={login}
                   >
                      Login/Signup
-                  </button>
-               </li>
+                  </button> 
+                  :
+                  <button 
+                     className={styles.listBtn}
+                     type='button'
+                     onClick={logout}
+                  > 
+                     Log out
+                  </button> }
+               </li> }
             </ul>
          </div>
       </nav>
