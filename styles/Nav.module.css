@@ -1,15 +1,47 @@
 .containerNav {
-   padding: 40px 30px 30px;
+   padding: 30px 30px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .link {
    font-size: 3rem;
    text-decoration: none;
    color: black;
-   line-height: 0.8rem;
+   line-height: 2rem;
 }
 
 .small {
    font-size: 1.4rem;
    font-family: 'Water Brush', cursive;
+}
+
+.list {
+   display: flex;
+   align-items: center;
+   list-style: none;
+   gap: 0 15px;
+}
+
+.listLink {
+   text-decoration: none;
+   color: black;
+   text-transform: uppercase;
+}
+
+.listBtn {
+   position: relative;
+   padding: 10px 12px;
+   background-color: transparent;
+   border: none;
+   font-family: 'Raleway', sans-serif;
+   font-size: 1.6rem;
+   background-color: #FEE76E;
+   color: black;
+   transition: transform 1s;
+}
+.listBtn:hover {
+   cursor: pointer;
+   transform: rotate(-5deg);
 }
