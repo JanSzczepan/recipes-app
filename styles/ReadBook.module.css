@@ -1,3 +1,17 @@
 .readBookContainer {
    padding: 30px;
 }
+
+.title {
+   margin-bottom: 5px;
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 3rem;
+   text-decoration: underline;
+   text-decoration-color: #FEE76E;
+}
+
+.author {
+   font-style: italic;
+   color: gray;
+}
