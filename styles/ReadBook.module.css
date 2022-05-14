@@ -7,11 +7,36 @@
    font-family: 'Lora', serif;
    font-weight: 600;
    font-size: 3rem;
-   text-decoration: underline;
-   text-decoration-color: #FEE76E;
 }
 
 .author {
+   margin-bottom: 30px;
    font-style: italic;
    color: gray;
+}
+
+.richTextContainer {
+   max-width: 700px;
+}
+
+.richTextContainer > h4, .richTextContainer > h5, .richTextContainer > h6 {
+   position: relative;
+   margin-bottom: 10px;
+   font-family: 'Lora', serif;
+   font-weight: 600;
+}
+
+.richTextContainer > p {
+   margin-bottom: 20px;
+   padding-left: 10px;
+}
+
+.richTextContainer > h4::before, .richTextContainer > h5::before, .richTextContainer > h6::before {
+   content: '';
+   position: absolute;
+   bottom: -5px;
+   left: 0;
+   width: 50px;
+   height: 3px;
+   background-color: #FEE76E;
 }

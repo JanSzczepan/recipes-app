@@ -1,4 +1,5 @@
 import { createClient } from "contentful"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Skeleton from "../../components/Skeleton"
 import styles from '../../styles/ReadBook.module.css'
@@ -55,6 +56,9 @@ const ReadBook = ({ book }) => {
          <div className={`container ${styles.readBookContainer}`}>
             <h1 className={styles.title}>{title}</h1>
             <h4 className={styles.author}>by {author}</h4>
+            <div className={styles.richTextContainer}>
+               {documentToReactComponents(content)}
+            </div>
          </div>
       </article>
    );
