@@ -11,7 +11,7 @@ import RecipeCard from '../components/RecipeCard'
 import styles from '../styles/Home.module.css'
 
 export async function getStaticProps() {
-
+  
   //connect our contentful account
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -32,7 +32,7 @@ export default function Home({ recipes }) {
 
   console.log(recipes);
   const { title, description, featuredImage, cookingTime, slug } = recipes[0].fields
-
+  
   return (
     <>
     <Head>

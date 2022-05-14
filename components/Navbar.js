@@ -23,6 +23,7 @@ const Navbar = () => {
             <ul className={styles.list}>
                <li className={styles.listItem}><Link href='/'><a className={styles.listLink}>Home</a></Link></li>
                <li className={styles.listItem}><Link href='/books'><a className={styles.listLink}>Books</a></Link></li>
+               { user && <li className={styles.listItem}>{user.user_metadata.full_name}</li> }
                { authReady && <li className={styles.listItem}>
                   { !Boolean(user) ? 
                   <button 

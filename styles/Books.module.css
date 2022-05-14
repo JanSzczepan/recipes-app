@@ -1,0 +1,69 @@
+.booksContainer {
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+}
+
+.title {
+   width: fit-content;
+   padding: 7px 30px 8px;
+   background-color: #FEE76E;
+   font-size: 3rem;
+   transform: rotate(-3deg);
+   margin-bottom: 25px;
+}
+
+.text {
+   padding-left: 15px;
+   font-size: 2rem;
+}
+
+.span {
+   font-weight: 600;
+}
+
+
+.cardsWrapper {
+   width: 100%;
+}
+
+.cardsTitle {
+   margin-bottom: 10px;
+   font-family: 'Lora', serif;
+   font-size: 2.5rem;
+   font-weight: 600;
+}
+
+.cardsSpan {
+   text-decoration: underline;
+   text-decoration-color: #FEE76E;
+}
+
+.cardsText {
+   max-width: 100%;
+   margin-bottom: 30px;
+   color: gray;
+   font-size: 1.4rem;
+}
+
+.cardsBox {
+   display: flex;
+   flex-direction: column;
+   gap: 15px 24px;
+}
+
+@media(min-width: 600px) {
+   .cardsTitle {
+      font-size: 3rem;
+   }
+
+   .cardsText {
+      max-width: 70%;
+      font-size: 1.6rem;
+   }
+
+   .cardsBox {
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+}

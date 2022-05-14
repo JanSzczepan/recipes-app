@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
    const paths = res.items.map(item => (
       {params: {slug: item.fields.slug}}
    ))
-
+   
    //"fallback: true" - not 404 for new slug
    return {
       paths,
