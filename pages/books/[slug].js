@@ -1,7 +1,11 @@
+import { useContext } from "react"
+
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
+import { AuthContext } from "../../contexts/AuthContext"
 import Skeleton from "../../components/Skeleton"
+import NotSoFast from "../../components/NotSoFats"
 import styles from '../../styles/ReadBook.module.css'
 
 const client = createClient({
@@ -45,7 +49,7 @@ export const getStaticProps = async ({ params }) => {
 
 const ReadBook = ({ book }) => {
 
-   console.log('Book data:', book)
+   const { user, authReady } = useContext(AuthContext)
 
    if(!book) return <Skeleton />
 
@@ -54,11 +58,19 @@ const ReadBook = ({ book }) => {
    return ( 
       <article>
          <div className={`container ${styles.readBookContainer}`}>
-            <h1 className={styles.title}>{title}</h1>
-            <h4 className={styles.author}>by {author}</h4>
-            <div className={styles.richTextContainer}>
-               {documentToReactComponents(content)}
-            </div>
+            { authReady && <>
+               { user ? 
+                  <>
+                     <h1 className={styles.title}>{title}</h1>
+                     <h4 className={styles.author}>by {author}</h4>
+                     <div className={styles.richTextContainer}>
+                        {documentToReactComponents(content)}
+                     </div>
+                  </>
+                  :
+                  <NotSoFast />
+               }
+            </>}
          </div>
       </article>
    );

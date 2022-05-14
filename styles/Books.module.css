@@ -4,20 +4,6 @@
    justify-content: center;
 }
 
-.title {
-   width: fit-content;
-   padding: 7px 30px 8px;
-   background-color: #FEE76E;
-   font-size: 3rem;
-   transform: rotate(-3deg);
-   margin-bottom: 25px;
-}
-
-.text {
-   padding-left: 15px;
-   font-size: 2rem;
-}
-
 .span {
    font-weight: 600;
 }

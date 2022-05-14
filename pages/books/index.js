@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 
 import { AuthContext } from "../../contexts/AuthContext"
 import BookCard from "../../components/BookCard"
+import NotSoFast from "../../components/NotSoFats"
 import styles from '../../styles/Books.module.css'
 
 const Books = () => {
@@ -39,12 +40,9 @@ const Books = () => {
                      <div className={styles.cardsBox}>
                         { books.map((book, idx) => <BookCard key={idx} book={book}/>) }
                      </div>
-                  </div>
+                  </div> 
                   :
-                  <div className={styles.textBox}>
-                     <h2 className={styles.title}>Not so fast</h2>
-                     <p className={styles.text}>You have to be <span className={styles.span}>logged in</span> to see this content.</p>
-                  </div>
+                  <NotSoFast />
                }
             </> }
          </div>
